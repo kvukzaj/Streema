@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streema - Movies</title>
+    <link rel="icon" href="{% static '/Images/ikona.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static '/CSS/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!--- google font link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <!-- Fontawesome Link for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body id="top">
+    <!--Navbar-->
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand me-lg-5" href="{% url 'index' %}"><img src="{% static '/Images/logo.png' %}" alt="Streema" height="40px"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'movies' %}">Movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'series' %}">Series</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact us</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="text" id="searchBar" onkeyup="searchTitles()" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success me-5" type="submit">Search</button>
+                </form>
+                <div class="d-flex">
+                    <a href="{% url 'logout' %}" class="btn btn-outline-primary me-2 my-2">Sign out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Movies -->
+    <section class="latest-movies" id="LatestMovies">
+        <div class="heading">
+            <h4 class="category-title">All Movies</h4>
+        </div>
+        <section class=" row cards-collection" id="movieSection">
+            <div class=" col-lg-10 cards">
+                <div class="movies-card" id="AdamProject">
+                    <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/adam-project.png' %}"></a>
+                    <div class="title-wrapper">
+                        <a href="{% url 'freeguy' %}"><h5>Adam Project</h5></a>
+                        <time datetime="2022">2022</time>
+                    </div>
+                    <div class="badge badge-outline">4K</div>
+                </div>
+                <div class="movies-card">
+                    <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/1917.jpg' %}"></a>
+                    <div class="title-wrapper">
+                        <a href="{% url 'freeguy' %}"><h5>1917</h5></a>
+                        <time datetime="2020">2020</time>
+                    </div>
+                    <div class="badge badge-outline">HD</div>
+                </div>
+                <div class="movies-card">
+                    <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/bolt.jpg' %}"></a>
+                    <div class="title-wrapper">
+                        <a href="{% url 'freeguy' %}"><h5>Bolt</h5></a>
+                        <time datetime="2008">2008</time>
+                    </div>
+                    <div class="badge badge-outline">HD</div>
+                </div>
+                <div class="movies-card">
+                    <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/dark-knight.jpg' %}"></a>
+                    <div class="title-wrapper">
+                        <a href="{% url 'freeguy' %}"><h5>Dark Knight</h5></a>
+                        <time datetime="2008">2008</time>
+                    </div>
+                    <div class="badge badge-outline">HD</div>
+                </div>
+                <div class="movies-card">
+                    <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/matrix.jpg' %}"></a>
+                    <div class="title-wrapper">
+                        <a href="{% url 'freeguy' %}"><h5>The Matrix 4</h5></a>
+                        <time datetime="2021">2021</time>
+                    </div>
+                    <div class="badge badge-outline">HD</div>
+                </div>
+                <div class="movies-card">
+                    <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/dune.jpg' %}"></a>
+                    <div class="title-wrapper">
+                        <a href="{% url 'freeguy' %}"><h5>Dune</h5></a>
+                        <time datetime="2021">2021</time>
+                    </div>
+                    <div class="badge badge-outline">HD</div>
+                </div>
+                <div class="movies-card">
+                    <a href="{% url 'freeguy' %}"> <img src="{% static "/Images/movies/We're_the_Millers_poster.jpg" %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>We're the Millers</h5></a>
+                    <time datetime="2013">2013</time>
+                </div>
+                <div class="badge badge-outline">HD</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/the-northman.png' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>The Northman</h5></a>
+                    <time datetime="2022">2022</time>
+                </div>
+                <div class="badge badge-outline">HD</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/the terminal.jpg' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>The Terminal</h5></a>
+                    <time datetime="2004">2004</time>
+                </div>
+                <div class="badge badge-outline">HD</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/death-of-the-nile.png' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>Death of the Nile</h5></a>
+                    <time datetime="2022">2022</time>
+                </div>
+                <div class="badge badge-outline">HD</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"><img src="{% static '/Images/movies/free-guy.png' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>Free Guy</h5></a>
+                    <time datetime="2021">2021</time>
+                </div>
+                <div class="badge badge-outline">4K</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'joker' %}"><img src="{% static '/Images/movies/joker.jpg' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'joker' %}"><h5>Joker</h5></a>
+                    <time datetime="2019">2019</time>
+                </div>
+                <div class="badge badge-outline">4K</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'bossbaby' %}"><img src="{% static '/Images/movies/boss-baby.jpg' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'bossbaby' %}"><h5>Boss Baby</h5></a>
+                    <time datetime="2017">2017</time>
+                </div>
+                <div class="badge badge-outline">HD</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/uncharted.png' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>Uncharted</h5></a>
+                    <time datetime="2022">2022</time>
+                </div>
+                <div class="badge badge-outline">2K</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/Fast-9.jpg' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>Fast 9</h5></a>
+                    <time datetime="2021">2021</time>
+                </div>
+                <div class="badge badge-outline">2K</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/pirates-of-the-caribbean.jpg' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>Pirates of the Caribbean</h5></a>
+                    <time datetime="2003">2003</time>
+                </div>
+                <div class="badge badge-outline">HD</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/sonic.png' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>Sonic the Hedgehog 2</h5></a>
+                    <time datetime="2022">2022</time>
+                </div>
+                <div class="badge badge-outline">HD</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/venom.jpg' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>Venom</h5></a>
+                    <time datetime="2018">2018</time>
+                </div>
+                <div class="badge badge-outline">HD</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/tenet.jpg' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>Tenet</h5></a>
+                    <time datetime="2020">2020</time>
+                </div>
+                <div class="badge badge-outline">HD</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/top-gun.jpg' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>Top Gun</h5></a>
+                    <time datetime="1986">1986</time>
+                </div>
+                <div class="badge badge-outline">HD</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/captain-marvel.jpg' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>Captain Marvel</h5></a>
+                    <time datetime="2019">2019</time>
+                </div>
+                <div class="badge badge-outline">2K</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/interstaller.jpg' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>Interstaller</h5></a>
+                    <time datetime="2014">2014</time>
+                </div>
+                <div class="badge badge-outline">HD</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/spider-men.jpg' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>The Spider Man</h5></a>
+                    <time datetime="2019">2019</time>
+                </div>
+                <div class="badge badge-outline">HD</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/casino-royale.jpg' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>Casino Royale</h5></a>
+                    <time datetime="2006">2006</time>
+                </div>
+                <div class="badge badge-outline">HD</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/panther.jpg' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>Black Panther</h5></a>
+                    <time datetime="2018">2018</time>
+                </div>
+                <div class="badge badge-outline">HD</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/red-notice.jpg' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>Red Notice</h5></a>
+                    <time datetime="2021">2021</time>
+                </div>
+                <div class="badge badge-outline">HD</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/endgame.jpg' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>Avengers: Endgame</h5></a>
+                    <time datetime="2019">2019</time>
+                </div>
+                <div class="badge badge-outline">4K</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/eternals.jpg' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>Eternals</h5></a>
+                    <time datetime="2021">2021</time>
+                </div>
+                <div class="badge badge-outline">2K</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/frozen.jpg' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>Frozen 2</h5></a>
+                    <time datetime="2021">2021</time>
+                </div>
+                <div class="badge badge-outline">HD</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/fury.jpg' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>Fury</h5></a>
+                    <time datetime="2014">2014</time>
+                </div>
+                <div class="badge badge-outline">4K</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/Hamilton.jpg' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>Hamilton</h5></a>
+                    <time datetime="2020">2020</time>
+                </div>
+                <div class="badge badge-outline">HD</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/holidate.jpg' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>Holidate</h5></a>
+                    <time datetime="2020">2020</time>
+                </div>
+                <div class="badge badge-outline">HD</div>
+            </div>
+            <div class="movies-card">
+                <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/kung.jpg' %}"></a>
+                <div class="title-wrapper">
+                    <a href="{% url 'freeguy' %}"><h5>Kung Fu Panda</h5></a>
+                    <time datetime="2008">2008</time>
+                </div>
+                <div class="badge badge-outline">HD</div>
+            </div>
+            
+                <div class="movies-card">
+                    <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/pinocchio.jpg'%}"></a>
+                    <div class="title-wrapper">
+                        <a href="{% url 'freeguy' %}"><h5>Pinocchio</h5></a>
+                        <time datetime="1940">1940</time>
+                    </div>
+                    <div class="badge badge-outline">HD</div>
+                </div>
+                <div class="movies-card">
+                    <a href="{% url 'freeguy' %}"> <img src="{% static '/Images/movies/morbius.png'%}"></a>
+                    <div class="title-wrapper">
+                        <a href="{% url 'freeguy' %}"><h5>Morbius</h5></a>
+                        <time datetime="2022">2022</time>
+                    </div>
+                    <div class="badge badge-outline">4K</div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row footer">
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                    <div class="img">
+                        <img src="{% static '/Images/logo.png'%}" height="60px" />
+                    </div>
+                    <div class="title">
+                        <small>Online Streaming Platform</small>
+                    </div>
+                    <br>
+                    <div>
+                        <p>
+                            Streema is an online streaming platform that offers a vast selection of movies and TV shows across various genres. From the latest blockbusters to timeless classics, Streema provides a seamless and enjoyable streaming experience. Streema is your one-stop shop for all your entertainment needs.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4">
+                    <h4 class="footer-titles">Quick links</h4>
+                    <ul>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'movies' %}">Movies</a></li>
+                        <li><a href="{% url 'series' %}">Series</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4">
+                    <h4 class="footer-titles">Categories</h4>
+                    <ul>
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Adventure</a></li>
+                        <li><a href="#">Comedy</a></li>
+                        <li><a href="#">Crime</a></li>
+                        <li><a href="#">Drama</a></li>
+                        <li><a href="#">Fantasy</a></li>
+                        <li><a href="#">Horror</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4">
+                    <h4 class="footer-titles">Follow Us</h4>
+                    <ul class="links">
+                        <li><a href="https://linkedin.com/in/klodianvukzaj"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="https://instagram.com/klodivukzaj"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="https://twitter.com/KlodiVukzaj"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><i class="fab fa-youtube"></i> YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="JS/carousel.js"></script>
+        <script src="{% static 'JS/Search.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+</body>
+</html>

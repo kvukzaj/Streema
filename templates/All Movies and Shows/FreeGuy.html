@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streema - Free Guy</title>
+    <link rel="icon" href="{% static '/Images/ikona.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static '/CSS/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!--- google font link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <!-- Fontawesome Link for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body id="top">
+    <!--Navbar-->
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand me-lg-5" href="{% url 'index' %}"><img src="{% static '/Images/logo.png' %}" alt="Streema" height="40px"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'movies' %}">Movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'series' %}">Series</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact us</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success me-5" type="submit">Search</button>
+                </form>
+                <div class="d-flex">
+                    <a href="{% url 'login' %}" class="btn btn-outline-primary me-2 my-2">Sign out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Movie Details -->
+    <div class="container">
+        <div class="watch-movie">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/X2m-08cOAbc?si=uNVuug_epBCS1o8c" allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="row">
+            <div class="col-3 the-hidden-cover">
+                <div class="movie-details">
+                    <div class="themovie-card">
+                        <img src="{% static '/Images/movies/free-guy.png' %}" alt="Free Guy" />
+                    </div>
+                    <div class="movie-ratings">
+                        <p><strong>IMDb:</strong> <i>7.6/10</i></p>
+                        <p><strong>Rotten Tomatoes:</strong> <i>82%</i></p>
+                        <p><strong>Metacritic:</strong> <i>62/100</i></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-9 col-lg-9 col-md-12">
+                <div class="movie-info">
+                    <h1>Free Guy</h1>
+                    <p>2021 | 1h 55m | Action, Comedy, Sci-Fi</p>
+                    <p>Free Guy is a 2021 American science fiction action comedy film directed by Shawn Levy from a screenplay by Matt Lieberman and Zak Penn and a story by Lieberman. The film stars Ryan Reynolds, Jodie Comer, Lil Rel Howery, Utkarsh Ambudkar, Joe Keery, and Taika Waititi. It follows a bank teller who discovers he is a non-player character in an open-world video game and becomes the hero of the story. The film was produced by 21 Laps Entertainment and Maximum Effort, and distributed by 20th Century Studios.</p>
+                    <div class="more-movie-details">
+                        <div class="row">
+                            <div class="col-xl-5 col-lg-5 col-md-4 col-sm-12">
+                                <p><strong>Release Date:</strong> August 13, 2021</p>
+                                <p><strong>Directed by:</strong> Shawn Levy</p>
+                                <p><strong>Starring:</strong> Ryan Reynolds, Jodie Comer, Taika Waititi</p>
+                                <p><strong>Country:</strong> United States</p>
+                                <p><strong>Language:</strong> English</p>
+                                <p><strong>Distributed by:</strong> 20th Century Studios</p>
+                            </div>
+                            <div class="col-xl-7 col-lg-7 col-md-8 col-sm-12">
+                                <p><strong>Produced by:</strong> Ryan Reynolds, Shawn Levy, Greg Berlanti, Sarah Schechter, Adam Kolbrenner</p>
+                                <p><strong>Production Companies:</strong> 21 Laps Entertainment, Maximum Effort, Berlanti Productions, TSG Entertainment</p>
+                                <p><strong>Budget:</strong> $100 million</p>
+                                <p><strong>Box Office:</strong> $331.3 million</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row footer">
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                    <div class="img">
+                        <img src="{% static '/Images/logo.png' %}" height="60px" />
+                    </div>
+                    <div class="title">
+                        <small>Online Streaming Platform</small>
+                    </div>
+                    <br>
+                    <div>
+                        <p>
+                            Streema is an online streaming platform that offers a vast selection of movies and TV shows across various genres. From the latest blockbusters to timeless classics, Streema provides a seamless and enjoyable streaming experience. Streema is your one-stop shop for all your entertainment needs.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4">
+                    <h4 class="footer-titles">Quick links</h4>
+                    <ul>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'movies' %}">Movies</a></li>
+                        <li><a href="{% url 'series' %}">Series</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4">
+                    <h4 class="footer-titles">Categories</h4>
+                    <ul>
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Adventure</a></li>
+                        <li><a href="#">Comedy</a></li>
+                        <li><a href="#">Crime</a></li>
+                        <li><a href="#">Drama</a></li>
+                        <li><a href="#">Fantasy</a></li>
+                        <li><a href="#">Horror</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4">
+                    <h4 class="footer-titles">Follow Us</h4>
+                    <ul class="links">
+                        <li><a href="https://linkedin.com/in/klodianvukzaj"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="https://instagram.com/klodivukzaj"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="https://twitter.com/KlodiVukzaj"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><i class="fab fa-youtube"></i> YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="JS/carousel.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+</body>
+</html>
