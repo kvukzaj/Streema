@@ -129,3 +129,6 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/login/'
+
+# Add the CustomUser model to the AUTH_USER_MODEL setting
+# AUTH_USER_MODEL = 'StreemaApp.CustomUser'

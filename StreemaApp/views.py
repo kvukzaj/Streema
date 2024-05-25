@@ -11,6 +11,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from StreemaApp.forms import ContactForm
+
+
 # -------------------------------------------------------------------------
 
 # Create your views here.
@@ -46,16 +49,27 @@ def movies(request):
 def series(request):
     return render(request, 'Pages/series.html')
 
+# @login_required
+# def contact (request):
+#     if request.method == 'POST':
+#         form = contact(request.POST)
+#         if form.is_valid():
+#             form.save()
+#     else:
+#         return render(request, 'Pages/Contact.html')
+
 @login_required
 def contact (request):
-#     if request.method == 'POST':
-#         firstname = request.POST.get('firstname')
-#         email = request.POST.get('email')
-#         phone = request.POST.get('phone')
-#         message = request.POST.get('message')
-#         return JsonResponse({'status': 'success', 'message': 'Your message has been sent successfully!'})
-#     else:
-        return render(request, 'Pages/Contact.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your message has been sent successfully!")
+            return redirect('index')
+    else:
+        form = ContactForm()
+    return render(request, 'Pages/Contact.html', {'form': form})
+
 
 @login_required
 def logout_user(request):
@@ -83,12 +97,19 @@ def view_create_page(request):
     return render(request, 'Pages/register.html')
 
 def signup(request):
-    User.objects.create(
-        email=request.POST.get("email"),
-        password=request.POST.get("password"),
-    )
-    messages.success(request, "User Created Successfully!")
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
 
+        if User.objects.filter(username=email).exists():
+            messages.error(request, "Email is already registered.")
+            return redirect('register')
+
+        user = User.objects.create_user(username=email, email=email, password=password)
+        user.save()
+        messages.success(request, "User created successfully!")
+        return redirect('login')
+    return render(request, 'Pages/register.html')
 
 @login_required
 def FreeGuy(request):
