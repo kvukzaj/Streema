@@ -49,14 +49,6 @@ def movies(request):
 def series(request):
     return render(request, 'Pages/series.html')
 
-# @login_required
-# def contact (request):
-#     if request.method == 'POST':
-#         form = contact(request.POST)
-#         if form.is_valid():
-#             form.save()
-#     else:
-#         return render(request, 'Pages/Contact.html')
 
 @login_required
 def contact (request):
@@ -110,6 +102,17 @@ def signup(request):
         messages.success(request, "User created successfully!")
         return redirect('login')
     return render(request, 'Pages/register.html')
+
+def register(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('home')  # Ensure 'home' is a valid view name
+    else:
+        form = RegisterForm()
+    return render(request, 'register.html', {'form': form})
 
 @login_required
 def FreeGuy(request):

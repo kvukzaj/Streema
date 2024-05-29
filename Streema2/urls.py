@@ -21,10 +21,10 @@ from StreemaApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.login, name='login'),
     path('login/', views.login, name='login'),
-    path('home/', views.index, name='index'),
     path('signup/', views.signup, name='signup'),
+    path('', views.login, name='home'),
+    path('home/', views.index, name='index'),
     path('register/', views.view_create_page, name='register'),
     path('logout/', views.logout_user, name='logout'),
     path('movies/', views.movies, name='movies'),

@@ -20,3 +20,10 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
         fields = ['firstname', 'email', 'phone', 'message']
+
+class RegisterForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+
+    class Meta:
+        # model = User
+        fields = ['email', 'password', 'password2']

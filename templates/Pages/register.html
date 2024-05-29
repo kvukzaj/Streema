@@ -23,16 +23,23 @@
                 {% csrf_token %}
                 <h1>Sign Up</h1>
                 <div class="input-text">
-                    <input type="text" id="inputEmail" name="email" placeholder="Email address" onfocus="inputOnFocus(this)" onblur="inputOnBlur(this)"/>
+                    <input type="text" id="inputEmail" name="email" placeholder="Email address" onfocus="inputOnFocus(this)" onblur="inputOnBlur(this)" required/>
                     <div class="warning-input" id="warningEmail">
                         Please enter a valid email.
                     </div>
                 </div>
 
                 <div class="input-text">
-                    <input type="password" id="inputPassword" name="password" placeholder="Password" onfocus="inputOnFocus(this)" onblur="inputOnBlur(this)"/>
+                    <input type="password" id="inputPassword" name="password" placeholder="Password" onfocus="inputOnFocus(this)" onblur="inputOnBlur(this)" required/>
                     <div class="warning-input" id="warningPassword">
                         Your password must contain between 8 and 60 characters.
+                    </div>
+                </div>
+
+                <div class="input-text">
+                    <input type="password" id="inputPassword" name="password2" placeholder="Re-enter your Password" onfocus="inputOnFocus(this)" onblur="inputOnBlur(this)" required/>
+                    <div class="warning-input" id="warningPassword">
+                        Your passwords don't match.
                     </div>
                 </div>
 
