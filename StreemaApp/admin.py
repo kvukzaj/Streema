@@ -10,7 +10,3 @@ from django.contrib.auth.admin import UserAdmin
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('firstname', 'email', 'phone', 'message', 'created_at')
     search_fields = ('firstname', 'email', 'phone')
-
-
-# admin.site.register(User, UserAdmin)
-# admin.site.register(CustomUser)

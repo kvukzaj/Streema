@@ -13,7 +13,6 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from StreemaApp.forms import ContactForm
 
-
 # -------------------------------------------------------------------------
 
 # Create your views here.
@@ -88,6 +87,7 @@ def login_emp(request):
 def view_create_page(request):
     return render(request, 'Pages/register.html')
 
+
 def signup(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -103,16 +103,6 @@ def signup(request):
         return redirect('login')
     return render(request, 'Pages/register.html')
 
-def register(request):
-    if request.method == 'POST':
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('home')  # Ensure 'home' is a valid view name
-    else:
-        form = RegisterForm()
-    return render(request, 'register.html', {'form': form})
 
 @login_required
 def FreeGuy(request):
